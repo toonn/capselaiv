@@ -12,8 +12,11 @@ friend(dan,bob).
 friend(carla,alice).
 friend(carla,bob).
 
-spouse(alice,bob).
-spouse(bob,alice).
+spouse_(alice,bob).
+spouse(A,B) :-
+    spouse_(A,B).
+spouse(A,B) :-
+    spouse_(B,A).
 
 % We consider three (types of) holiday destinations (seaside, mountains and
 % city), and two attributes of people (enjoying sports and sightseeing,
@@ -42,13 +45,19 @@ K::favorite(P,D) :-
     enjoys(P,sightseeing),
     enjoys(P,sports).
 
-likes(P,A) :-
-    favorite(P,A).
+likes(P,F) :-
+    person(P),
+    destination(F),
+    favorite(P,F).
 
-0.8::likes(P,D) :-
+0.8::likes(P,D) <-
+    person(P),
+    destination(D),
     spouse(P,S),
     likes(S,D).
-0.1::likes(P,D) :-
+0.1::likes(P,D) <-
+    person(P),
+    destination(D),
     friend(P,F),
     likes(F,D).
 
@@ -68,7 +77,7 @@ likes_(P,D) :-
     destination(D),
     likes(P,D).
 
-%query(likes_(P,D)).
+query(likes_(P,D)).
 
 % Destination choices
 
@@ -95,7 +104,7 @@ likes_(P,D) :-
     \+ happy(P,Prev),
     O1\==D,O2\==D,O2\==O1.
 
-query(happy(_,2)).
+%query(happy(_,2)).
 
 % 10
 0.4::happy(P,Y) <-
