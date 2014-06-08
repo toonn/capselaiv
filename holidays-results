@@ -16,3 +16,15 @@ START: problog execution
 FINISH: problog execution 45.590
 RESULT: holidays-2 {'happy(alice,5)': 0.42406599834436703, 'happy(dan,5)': 0.42406599834436676, 'happy(carla,5)': 0.4240659983443671, 'happy(bob,5)': 0.4240673804320367}
 
+
+
+
+FINISH: problog execution 0.636
+RESULT: holidays-2 {'happy(carla,1)': 0.45696, 'happy(bob,1)': 0.49429676098559994, 'happy(alice,1)': 0.49429676098560005, 'happy(dan,1)': 0.45696}
+FINISH: problog execution 14.927
+RESULT: holidays-2 {'happy(carla,2)': 0.4019620079999998, 'happy(dan,2)': 0.401962008, 'happy(bob,2)': 0.4766645812808028, 'happy(alice,2)': 0.4766645812808023}
+
+
+
+FINISH: problog execution 8.315
+RESULT: holidays-2 {'happy(alice,1)': 0.524717646562943, 'happy(bob,1)': 0.4942967609855997, 'happy(dan,1)': 0.49429676098559966, 'happy(carla,1)': 0.5247176465629426}

@@ -95,10 +95,20 @@ likes_(P,D) :-
     \+ happy(P,Prev),
     O1\==D,O2\==D,O2\==O1.
 
-happy_(P,Y) :-
-    Y>0,
+query(happy(_,2)).
+
+% 10
+0.4::happy(P,Y) <-
     person(P),
-    happy(P,Y).
+    destination(D),
+    visits(P,D,Y),
+    spouse(P,S),
+    visits(S,D,Y).
 
-query(happy(_,6)).
-
+% 11
+0.4::happy(P,Y) <-
+    person(P),
+    destination(D),
+    visits(P,D,Y),
+    friend(P,F),
+    visits(F,D,Y).
