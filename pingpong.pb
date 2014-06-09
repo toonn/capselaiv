@@ -46,16 +46,19 @@ teamstrength([Person | RTeam], Game, TeamStrength) :-
     TeamStrength is PersonStrength + RTeamStrength.
     
 
-winner(Team1, Team2, Game, 2) :-
+winner(Team1, Team2, Game, loss) :-
     teamstrength(Team1, Game, TS1),
     teamstrength(Team2, Game, TS2),
     TS1 < TS2.
-winner(Team1, Team2, Game, 1).
+winner(Team1, Team2, Game, win) :-
+    teamstrength(Team1, Game, TS1),
+    teamstrength(Team2, Game, TS2),
+    TS1 >= TS2.
 
 
-evidence(winner([a], [b], 1, 1), true).
-evidence(winner([a], [b], 2, 1), true).
-evidence(winner([a], [b], 3, 1), true).
+evidence(winner([a], [b], 1, win), true).
+evidence(winner([a], [b], 2, win), true).
+evidence(winner([a], [b], 3, win), true).
 
 query(personstrength(a, SA)).
 query(personstrength(b, SB)).
