@@ -46,6 +46,19 @@ teamstrength([Person | RTeam], Game, TeamStrength) :-
     TeamStrength is PersonStrength + RTeamStrength.
     
 
+minteamstrength([], _, inf).
+minteamstrength([Person | RTeam], Game, TeamStrength) :-
+    lazy(Person, Game),
+    personstrength(Person, PersonStrength),
+    Strength is PersonStrength / 2,
+    minteamstrength(RTeam, Game, RTeamStrength),
+    TeamStrength is min(Strength, RTeamStrength).
+minteamstrength([Person | RTeam], Game, TeamStrength) :-
+    personstrength(Person, PersonStrength),
+    teamstrength(RTeam, Game, RTeamStrength),
+    TeamStrength is min(PersonStrength, RTeamStrength).
+
+
 winner(Team1, Team2, Game, loss) :-
     teamstrength(Team1, Game, TS1),
     teamstrength(Team2, Game, TS2),
@@ -56,9 +69,39 @@ winner(Team1, Team2, Game, win) :-
     TS1 >= TS2.
 
 
-evidence(winner([a], [b], 1, win), true).
-evidence(winner([a], [b], 2, win), true).
-evidence(winner([a], [b], 3, win), true).
+% Configuration 1: confounded evidence
+%evidence(winner([a], [b], 1, win), true).
+%evidence(winner([a], [b], 2, win), true).
+%evidence(winner([a], [b], 3, win), true).
+%
+%query(personstrength(a, SA)).
+%query(personstrength(b, SB)).
 
-query(personstrength(a, SA)).
-query(personstrength(b, SB)).
+
+% Configuration 2: strong indirect evidence
+%evidence(winner([a], [b], 1, win), true).
+%evidence(winner([b], [c], 2, win), true).
+%evidence(winner([b], [d], 3, win), true).
+%
+%query(personstrength(a, SA)).
+
+
+% Configuration 3: weak indirect evidence
+%evidence(winner([a], [b], 1, win), true).
+%evidence(winner([b], [c], 2, loss), true).
+%evidence(winner([b], [d], 3, loss), true).
+%
+%query(personstrength(a, SA)).
+
+
+% Configuration 3: diverse evidence
+%evidence(winner([a], [b], 1, win), true).
+%evidence(winner([a], [c], 2, win), true).
+%evidence(winner([a], [d], 3, win), true).
+%
+%query(personstrength(a, SA)).
+
+%query(winner([a], [b], 1, win)).
+%query(winner([a], [b], 1, loss)).
+
+query(winner([a,b], [y,z], 1, win)).
