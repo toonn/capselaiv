@@ -1,0 +1,5 @@
+============== STARTING TASK pingpong ==============
+Using temporary directory /tmp/tmpkqz5wain
+START: problog execution
+FINISH: problog execution 1.021
+RESULT: pingpong {'personstrength(a,6)': 0.013343709058956375, 'personstrength(a,10)': 0.4828867085333822, 'personstrength(a,2)': 5.257235856925372e-07, 'personstrength(a,14)': 0.4566180157547024, 'personstrength(a,18)': 0.04715104092937338}

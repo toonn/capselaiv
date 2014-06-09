@@ -36,11 +36,11 @@
 %0.157305 :: personstrength(Person, 16) <- true.
 
 % Every value represents the interval (value-2, value+2].
-0.0223211 :: personstrength(Person, 2) ;
-0.229742 :: personstrength(Person, 6) ;
-0.495015 :: personstrength(Person, 10) ;
-0.229742 :: personstrength(Person, 14) ;
-0.0223211 :: personstrength(Person, 18) <- true.
+%0.0223211 :: personstrength(Person, 2) ;
+%0.229742 :: personstrength(Person, 6) ;
+%0.495015 :: personstrength(Person, 10) ;
+%0.229742 :: personstrength(Person, 14) ;
+%0.0223211 :: personstrength(Person, 18) <- true.
 
 
 0.1 :: lazy(Person, Game).
@@ -125,6 +125,7 @@ minwinner(Team1, Team2, Game, loss) :-
 %
 %query(personstrength(a, SA)).
 
+% The probabilities in these two queries do not add up to 1. Why?
 %query(winner([a], [b], 1, win)).
 %query(winner([a], [b], 1, loss)).
 

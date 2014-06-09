@@ -1,0 +1,5 @@
+============== STARTING TASK pingpong ==============
+Using temporary directory /tmp/tmp9uehr4iq
+START: problog execution
+FINISH: problog execution 11.940
+RESULT: pingpong {'winner([a,b],[y,z],1,win)': 0.6595168042785291}
