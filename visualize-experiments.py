@@ -22,7 +22,7 @@ for title in experiment["titles"].iterkeys():
     bar_width = 1.0/(nr_quest+1)
     for quest_i, question in enumerate(sorted(experiment[title].iterkeys())):
         for prob_i, probability in enumerate(
-                sorted(experiment[title][question].iterkeys())):
+                sorted(experiment[title][question].iterkeys(), key=int)):
             if prob_i == 0:
                 label = question
             else:
@@ -37,9 +37,9 @@ for title in experiment["titles"].iterkeys():
     plt.ylabel(experiment["ylabels"][title])
     plt.title(experiment["titles"][title])
     plt.xticks(prob_ind + bar_width * nr_quest / 2,
-               sorted(experiment[title].itervalues().next().keys()),
+               sorted(experiment[title].itervalues().next().keys(), key=int),
                rotation = 30, fontsize = 7)
-    plt.legend(loc='upper center',prop={'size' : 10})
+    plt.legend(loc='upper right',prop={'size' : 10})
     plt.savefig('plot-'+title+'.png')
     plt.clf()
 

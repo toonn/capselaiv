@@ -9,25 +9,25 @@
 % 3 standard deviations from the mean.
 % This results in the interval [1,19], which, for convenience, was replaced by
 % (0.5,19.5], containing 99.8% of observations.
-%0.00153228 :: personstrength(Person, 1) ;
-%0.0039064 :: personstrength(Person, 2) ;
-%0.00892047 :: personstrength(Person, 3) ;
-%0.0182464 :: personstrength(Person, 4) ;
-%0.0334307 :: personstrength(Person, 5) ;
-%0.0548653 :: personstrength(Person, 6) ;
-%0.0806559 :: personstrength(Person, 7) ;
-%0.106209 :: personstrength(Person, 8) ;
-%0.125279 :: personstrength(Person, 9) ;
-%0.132368 :: personstrength(Person, 10) ;
-%0.125279 :: personstrength(Person, 11) ;
-%0.106209 :: personstrength(Person, 12) ;
-%0.0806559 :: personstrength(Person, 13) ;
-%0.0548653 :: personstrength(Person, 14) ;
-%0.0334307 :: personstrength(Person, 15) ;
-%0.0182464 :: personstrength(Person, 16) ;
-%0.00892047 :: personstrength(Person, 17) ;
-%0.0039064 :: personstrength(Person, 18) ;
-%0.00153228 :: personstrength(Person, 19) <- true.
+0.00153228 :: personstrength(Person, 1) ;
+0.0039064 :: personstrength(Person, 2) ;
+0.00892047 :: personstrength(Person, 3) ;
+0.0182464 :: personstrength(Person, 4) ;
+0.0334307 :: personstrength(Person, 5) ;
+0.0548653 :: personstrength(Person, 6) ;
+0.0806559 :: personstrength(Person, 7) ;
+0.106209 :: personstrength(Person, 8) ;
+0.125279 :: personstrength(Person, 9) ;
+0.132368 :: personstrength(Person, 10) ;
+0.125279 :: personstrength(Person, 11) ;
+0.106209 :: personstrength(Person, 12) ;
+0.0806559 :: personstrength(Person, 13) ;
+0.0548653 :: personstrength(Person, 14) ;
+0.0334307 :: personstrength(Person, 15) ;
+0.0182464 :: personstrength(Person, 16) ;
+0.00892047 :: personstrength(Person, 17) ;
+0.0039064 :: personstrength(Person, 18) ;
+0.00153228 :: personstrength(Person, 19) <- true.
 
 % Because more intervals make the computation take alot longer we added these.
 % Every value represents the interval (value-3, value+3].
@@ -93,13 +93,13 @@ minwinner(Team1, Team2, Game, loss) :-
 
 
 % Configuration 1: confounded evidence
-%evidence(winner([a], [b], 1, win), true).
-%evidence(winner([a], [b], 2, win), true).
-%evidence(winner([a], [b], 3, win), true).
-%
-%query(personstrength(a, SA)).
+evidence(winner([a], [b], 1, win), true).
+evidence(winner([a], [b], 2, win), true).
+evidence(winner([a], [b], 3, win), true).
+
+query(personstrength(a, SA)).
 % For the shifted gauss plot, this was also used.
-%query(personstrength(b, SB)).
+query(personstrength(b, SB)).
 
 
 % Configuration 2: strong indirect evidence
